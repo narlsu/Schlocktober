@@ -27,24 +27,30 @@ function content(){
         </div>
         <div class="col-sm-4">
           <h3 class="text-center"> Movie Suggest </h3>
-          <form class="form-horizontal" method="post" action="">
+
+          <?php
+              echo $_SESSION['moviesuggestError'];
+
+
+          ?>
+          <form class="form-horizontal" method="post" action=".\?page=moviesuggest">
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email">
               </div>
             </div>
             <div class="form-group">
               <label for="title" class="col-sm-2 control-label">Movie Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" placeholder="Troll 2">
+                <input type="text" class="form-control" id="title" placeholder="Troll 2" name="title">
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox"> Subscribe for Schlocktoberfest Newsletter<small> Once a month!</small>
+                    <input type="checkbox" name="checkbox"> Subscribe for Schlocktoberfest Newsletter<small> Once a month!</small>
                   </label>
                 </div>
               </div>
