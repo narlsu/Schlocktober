@@ -1,4 +1,5 @@
 <?php
+$title = " Home";
 include "templates/master.inc.php";
 function content(){
 ?>
