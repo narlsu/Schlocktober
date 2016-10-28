@@ -2,6 +2,7 @@
 $title = " Home";
 include "templates/master.inc.php";
 function content(){
+  global $moviesuggest;
 ?>
 
       <div class="row">
@@ -28,22 +29,23 @@ function content(){
         <div class="col-sm-4">
           <h3 class="text-center"> Movie Suggest </h3>
 
-          <?php
-              echo $_SESSION['moviesuggestError'];
-
-
-          ?>
           <form class="form-horizontal" method="post" action=".\?page=moviesuggest">
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="<?php echo $moviesuggest['email'];?>">
+                <?php if(! empty($moviesuggest['errors']['email'])): ?>
+                  <span class="text-danger"><?php echo $moviesuggest['errors']['email']?></span>
+                <?php endif;?>
               </div>
             </div>
             <div class="form-group">
               <label for="title" class="col-sm-2 control-label">Movie Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" placeholder="Troll 2" name="title">
+                <input type="text" class="form-control" id="title" placeholder="Troll 2" name="title" value="<?php echo $moviesuggest['title'];?>">
+                <?php if(! empty($moviesuggest['errors']['title'])): ?>
+                <span class="text-danger"><?php echo $moviesuggest['errors']['title']?></span>
+                <?php endif; ?>
               </div>
             </div>
             <div class="form-group">
