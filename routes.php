@@ -21,11 +21,17 @@
                   ]
           ];
       }
-      include "templates/home.inc.php";
+      
+      require "classes/HomeView.php";
+      $view = new HomeView(compact('moviesuggest'));
+      $view->render();
       break;
     
     case 'about':
-      include "templates/about.inc.php";
+      require "classes/AboutView.php";
+      $view = new AboutView();
+      $view->render();
+
       break;
     
     case 'moviesuggest':
