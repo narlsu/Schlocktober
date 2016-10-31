@@ -12,17 +12,33 @@ Class SuggesterEmailView {
 
 	public function render(){
 		extract($this->data);
+		$this->sendEmail("templates/suggesteremail.inc.php");
+	}
+
+	public function sendEmail($templateFile){
+
+		extract($this->data);
 
 		// instantiate the SDK with your API credentials and define your domain. 
-	      $mg = new Mailgun("YOUR_API_KEY_FOR_MAILGUN");
-	      $domain = "sandboxDOMAIN_NAME.mailgun.org";
+	      $mg = new Mailgun("YOUR_API_KEY");
+	      $domain = "sandbox_DOMAIN.mailgun.org";
 
-      // compose and send your message.
+	      // open up a buffer to store details of template file.
+
+	      ob_start();
+
+	      include $templateFile;
+
+	      $emailBody = ob_get_clean();
+
+      	// compose and send your message.
 	      $mg->sendMessage($domain, array(
-	        'from'    => 'Schlocktoberfest<mailgun@'.$domain .'>', 
-	        'to'      => "<". $moviesuggest['email'].">", 
-	        'subject' => 'Thanks for suggesting the movie ' . $moviesuggest['title'], 
-	        'text'    => 'Thanks for suggesting the movie '. $moviesuggest['title']. '. It would turn up in   the website soon!'));
+	        'from'    =>  $emailHeader['from'],
+	        'to'      =>  $emailHeader['to'],
+	        'subject' =>  $emailHeader['subject'],
+	        'text'    =>  $emailBody
+
+	        ));
 
 	}
 }
