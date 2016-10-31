@@ -1,11 +1,4 @@
-<?php
-$title = " Home";
-include "templates/master.inc.php";
-function content(){
-  global $moviesuggest;
-?>
-
-      <div class="row">
+       <div class="row">
         <div class="col-xs-12">
           <h1>Schlocktoberfest <small>The Best Worst Movie Festival Ever !</small></h1>
         </div>
@@ -74,5 +67,3 @@ function content(){
         </div>
       </div>
 
-<?php
-  }

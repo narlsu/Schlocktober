@@ -1,9 +1,3 @@
-<?php
-$title = " Movie Suggest";
-include "templates/master.inc.php";
-function content(){
-?>
-
       <div class="row">
         <div class="col-xs-12">
           <h1>Schlocktoberfest <small>The Best Worst Movie Festival Ever !</small></h1>
@@ -13,5 +7,3 @@ function content(){
         </div>
       </div>
      
-    <?php
-  }

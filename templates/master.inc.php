@@ -44,7 +44,7 @@
       </nav>
 
       <?php
-        content();
+        $this->content();
       ?>
 
       <hr>

@@ -1,6 +1,5 @@
 <?php
-  use Mailgun\Mailgun;
-
+  
   $page = ! isset($_GET['page']) ? "home" : $_GET['page'];
 
   switch ($page) {
@@ -78,22 +77,19 @@
         $_SESSION['moviesuggest']= $moviesuggest;
         header("location:./");
       } 
-      // instantiate the SDK with your API credentials and define your domain. 
-      $mg = new Mailgun("key-e57c285ca8eef10a12b8471981693f54");
-      $domain = "sandbox3ad8315481024697926f05e7414bc72a.mailgun.org";
 
-      // compose and send your message.
-      $mg->sendMessage($domain, array(
-        'from'    => 'Schlocktoberfest<mailgun@'.$domain .'>', 
-        'to'      => "<". $moviesuggest['email'].">", 
-        'subject' => 'Thanks for suggesting the movie ' . $moviesuggest['title'], 
-        'text'    => 'Thanks for suggesting the movie '. $moviesuggest['title']. '. It would turn up in   the website soon!'));
+      require "classes/SuggesterEmailView.php";
+      $view = new SuggesterEmailView(compact('moviesuggest'));
+      $view->render();
 
       header("Location:./?page=moviesuggestsuccess");
       break;
 
     case 'moviesuggestsuccess':
-     include "templates/moviesuggestsuccess.inc.php";
+     
+     require "classes/MovieSuggestSuccessView.php";
+     $view = new MovieSuggestSuccessView();
+     $view->render();
      break;
 
     default:

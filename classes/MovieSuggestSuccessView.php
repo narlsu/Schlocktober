@@ -1,0 +1,16 @@
+<?php
+
+Class MovieSuggestSuccessView {
+
+	public function render(){
+		$page="moviesuggestsuccess";
+		$title = " Movie Suggest";
+		include "templates/master.inc.php";
+	}
+
+	public function content(){
+		include "templates/moviesuggestsuccess.inc.php";
+	}
+}
+
+?>
