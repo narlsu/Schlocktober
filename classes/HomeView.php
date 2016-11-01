@@ -1,12 +1,8 @@
 <?php
+ 
+require "classes/View.php";
 
-Class HomeView {
-
-	public $data;
-
-	public function __construct($data){
-		$this->data = $data;
-	}
+Class HomeView extends View {
 
 	public function render(){
 		$page="home";

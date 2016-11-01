@@ -1,14 +1,8 @@
 <?php
 use Mailgun\Mailgun;
 
-
-Class SuggesterEmailView {
-
-	public $data;
-
-	public function __construct($data){
-		$this->data = $data;
-	}
+require "classes/View.php";
+Class SuggesterEmailView extends View {
 
 	public function render(){
 		extract($this->data);
