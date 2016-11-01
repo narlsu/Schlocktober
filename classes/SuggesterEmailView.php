@@ -1,7 +1,6 @@
 <?php
 use Mailgun\Mailgun;
 
-require "classes/View.php";
 Class SuggesterEmailView extends View {
 
 	public function render(){

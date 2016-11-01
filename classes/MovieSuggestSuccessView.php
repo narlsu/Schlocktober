@@ -1,5 +1,5 @@
 <?php
-require "classes/View.php";
+
 Class MovieSuggestSuccessView extends View {
 
 	public function render(){

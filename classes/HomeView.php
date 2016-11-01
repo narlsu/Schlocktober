@@ -1,6 +1,4 @@
 <?php
- 
-require "classes/View.php";
 
 Class HomeView extends View {
 
