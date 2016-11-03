@@ -1,7 +1,8 @@
 <?php
+namespace App\Views;
 
-Class AboutView extends View {
-
+Class AboutView extends View 
+{
 	public function render(){
 		$page="about";
 		$title = " About";
@@ -13,4 +14,3 @@ Class AboutView extends View {
 	}
 }
 
-?>

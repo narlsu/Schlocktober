@@ -1,7 +1,10 @@
 <?php
+namespace App\Views;
+
 use Mailgun\Mailgun;
 
-Class SuggesterEmailView extends View {
+Class SuggesterEmailView extends View
+{
 
 	public function render(){
 		extract($this->data);
@@ -36,4 +39,3 @@ Class SuggesterEmailView extends View {
 	}
 }
 
-?>

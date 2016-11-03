@@ -1,7 +1,9 @@
 <?php
 
-Class MovieSuggestSuccessView extends View {
+namespace App\Views;
 
+Class MovieSuggestSuccessView extends View 
+{
 	public function render(){
 		$page="moviesuggestsuccess";
 		$title = " Movie Suggest";
@@ -13,4 +15,3 @@ Class MovieSuggestSuccessView extends View {
 	}
 }
 
-?>

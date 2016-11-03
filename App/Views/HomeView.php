@@ -1,7 +1,9 @@
 <?php
 
-Class HomeView extends View {
+namespace App\Views;
 
+Class HomeView extends View 
+{
 	public function render(){
 		$page="home";
 		$title = " Home";
@@ -14,4 +16,3 @@ Class HomeView extends View {
 	}
 }
 
-?>
