@@ -37,7 +37,8 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li<?php if($page === "home"):?> class="active" <?php endif; ?>><a href=".\">Home <span class="sr-only">(current)</span></a></li>
-              <li<?php if($page === "about"):?> class="active" <?php endif; ?>><a href=".\?page=about">About</a></li>  
+              <li<?php if($page === "about"):?> class="active" <?php endif; ?>><a href=".\?page=about">About</a></li> 
+              <li<?php if($page === "movies"):?> class="active" <?php endif; ?>><a href=".\?page=movies">Movies</a></li>  
             </ul>      
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

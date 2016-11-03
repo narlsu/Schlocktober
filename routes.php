@@ -17,6 +17,12 @@ namespace App\Controllers;
       $controller = new AboutController();
       $controller->show();
       break;
+
+    case 'movies':
+
+      $controller = new MoviesController();
+      $controller->show();
+      break;
     
     case 'moviesuggest':
 
