@@ -3,15 +3,25 @@ namespace App\Controllers;
 
 use App\Views\MoviesView;
 use App\Models\MoviesModel;
+use App\Views\FeaturedMovieView;
 
 Class MoviesController
 {
-	public function show(){
+	public function showAll(){
 
 		$movies = new MoviesModel();
-		$movieList = $movies->showAll();
+		$moviesList = $movies->showAll();
 
-		$view = new MoviesView();
+		$view = new MoviesView(compact('moviesList'));
      	$view->render();
+	}
+
+	public function showFeaturedMovie(){
+		
+		$movie = new MoviesModel();
+		$featuredmovie = $movie->getFeaturedMovie();
+
+		$view = new FeaturedMovieView(compact('featuredmovie'));
+		$view->render();
 	}
 }

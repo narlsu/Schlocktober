@@ -22,7 +22,7 @@ Class MoviesModel
 
 	public function showAll(){
 
-		$db = self::getDatabaseConnection();
+		$db = $this->getDatabaseConnection();
 
 		$sql = "SELECT id, title, year, description FROM movies";
 
@@ -30,9 +30,32 @@ Class MoviesModel
 
 		$result = $statement->execute();
 
-		// $record = $result->fetch(PDO::FETCH_ASSOC);
+		$moviesArray = [];
 
-		var_dump($result);
+		while ($record = $statement->fetch(PDO::FETCH_ASSOC)){
+			array_push($moviesArray, $record);
+		}
+		return $moviesArray;
+
+	}
+
+	public function getFeaturedMovie(){
+
+		$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+		$db = $this->getDatabaseConnection();
+
+		$sql = "SELECT title, year, description FROM movies WHERE id=:id";
+
+		$statement = $db->prepare($sql);
+
+		$statement->bindValue(':id', $id);
+
+		$result = $statement->execute();
+
+		$record = $statement->fetch(PDO::FETCH_ASSOC);
+
+		return $record;
 
 	}
 

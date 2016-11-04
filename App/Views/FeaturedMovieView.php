@@ -1,16 +1,16 @@
 <?php
 namespace App\Views;
 
-Class MoviesView extends View 
+Class FeaturedMovieView extends View 
 {
 	public function render(){
-		$page="movies";
-		$title = " Movies List";
+		$page="featuredmovie";
+		$title = " Featured Movie";
 		include "templates/master.inc.php";
 	}
 
 	public function content(){
 		extract($this->data);
-		include "templates/movies.inc.php";
+		include "templates/featuredmovie.inc.php";
 	}
 }

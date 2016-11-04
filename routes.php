@@ -21,7 +21,13 @@ namespace App\Controllers;
     case 'movies':
 
       $controller = new MoviesController();
-      $controller->show();
+      $controller->showAll();
+      break;
+
+    case 'featuredmovie':
+
+      $controller = new MoviesController();
+      $controller->showFeaturedMovie();
       break;
     
     case 'moviesuggest':
