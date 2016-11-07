@@ -42,6 +42,12 @@ namespace App\Controllers;
      $controller->generateSuccessPage();
      break;
 
+    case 'merchandise':
+
+      $controller = new MerchandiseController();
+      $controller->showAll();
+      break;
+
     default:
       echo "Error 404 ! Page not found !";
       break;

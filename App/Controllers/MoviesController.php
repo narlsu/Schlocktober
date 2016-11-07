@@ -19,7 +19,7 @@ Class MoviesController
 	public function showFeaturedMovie(){
 		
 		$movie = new MoviesModel();
-		$featuredmovie = $movie->getFeaturedMovie();
+		$featuredmovie = $movie->find();
 
 		$view = new FeaturedMovieView(compact('featuredmovie'));
 		$view->render();
