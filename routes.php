@@ -29,6 +29,18 @@ namespace App\Controllers;
       $controller = new MoviesController();
       $controller->showFeaturedMovie();
       break;
+
+    case 'movie.create':
+
+      $controller = new MoviesController();
+      $controller->create();
+      break;
+
+    case 'movie.store':
+
+      $controller = new MoviesController();
+      $controller->store();
+      break;
     
     case 'moviesuggest':
 

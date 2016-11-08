@@ -8,6 +8,21 @@ abstract Class DatabaseModel
 {
 	private $dbc;
 
+	public function __construct($input = null){
+		if(is_array($input)){
+			$this->processArray($input);
+		}
+	}
+
+	public function processArray($input){
+		foreach (static::$columns as $column) {
+			if(isset($input[$column])){
+				$this->$column = $input[$column];
+			}
+		}
+
+	}
+
 	private function getDatabaseConnection(){
 
 		$dsn = 'mysql:host=localhost;dbname=Schlocktoberfest;charset=utf8';
@@ -58,5 +73,51 @@ abstract Class DatabaseModel
 		return $record;
 
 	}
+	public function save(){
+
+		$db = $this->getDatabaseConnection();
+
+		$columns = static::$columns;
+
+		unset($columns[array_search('id', $columns)]);
+
+		$sql = "INSERT INTO " . static::$tablename ." (" 
+				. implode(',', $columns) . ") VALUES (";
+
+		$insertcols = [];
+
+		foreach ($columns as $column) {
+			array_push($insertcols, ":".$column);
+		}
+		
+		$sql .= implode(',', $insertcols) .	")";
+
+		$statement = $db->prepare($sql);
+
+		foreach ($columns as $column) {
+			$statement->bindValue(":". $column, $this->$column);
+		}
+		
+		$statement->execute();
+
+		$this->id = $db->lastInsertId();
+
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
