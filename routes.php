@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controllers;
-  
+  // 
+  // if "page" exists in the address bar then $page= that page, otherwise $page = home"
   $page = ! isset($_GET['page']) ? "home" : $_GET['page'];
 
   switch ($page) {
@@ -59,6 +60,10 @@ namespace App\Controllers;
       $controller = new MerchandiseController();
       $controller->showAll();
       break;
+
+    case 'register';
+      echo 'register page';
+    break;
 
     default:
       echo "Error 404 ! Page not found !";
